@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Calculator - MLOps Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Visual Calculator</h1>
+        <div class="calculator">
+            <div class="display" id="display">0</div>
+            <div class="buttons">
+                <button class="btn btn-clear btn-wide" onclick="clearDisplay()">C</button>
+                <button class="btn btn-function" onclick="appendFunction('sqrt')">√</button>
+                <button class="btn btn-operator" onclick="appendOperator('/')">÷</button>
+                
+                <button class="btn btn-number" onclick="appendNumber('7')">7</button>
+                <button class="btn btn-number" onclick="appendNumber('8')">8</button>
+                <button class="btn btn-number" onclick="appendNumber('9')">9</button>
+                <button class="btn btn-operator" onclick="appendOperator('*')">×</button>
+                
+                <button class="btn btn-number" onclick="appendNumber('4')">4</button>
+                <button class="btn btn-number" onclick="appendNumber('5')">5</button>
+                <button class="btn btn-number" onclick="appendNumber('6')">6</button>
+                <button class="btn btn-operator" onclick="appendOperator('-')">-</button>
+                
+                <button class="btn btn-number" onclick="appendNumber('1')">1</button>
+                <button class="btn btn-number" onclick="appendNumber('2')">2</button>
+                <button class="btn btn-number" onclick="appendNumber('3')">3</button>
+                <button class="btn btn-operator" onclick="appendOperator('+')">+</button>
+                
+                <button class="btn btn-number btn-zero" onclick="appendNumber('0')">0</button>
+                <button class="btn btn-number" onclick="appendDecimal()">.</button>
+                <button class="btn btn-equals" onclick="calculate()">=</button>
+            </div>
+            
+            <div class="scientific-buttons">
+                <button class="btn btn-function" onclick="appendFunction('sin')">sin</button>
+                <button class="btn btn-function" onclick="appendFunction('cos')">cos</button>
+                <button class="btn btn-function" onclick="appendFunction('tan')">tan</button>
+                <button class="btn btn-function" onclick="appendFunction('log')">log</button>
+                <button class="btn btn-function" onclick="appendFunction('ln')">ln</button>
+            </div>
+        </div>
+        
+        <div class="history">
+            <h3>Calculation History</h3>
+            <div id="history-list"></div>
+        </div>
+        
+        <div class="api-info">
+            <h3>API Endpoints</h3>
+            <ul>
+                <li><code>GET /health</code> - Health check</li>
+                <li><code>GET /metrics</code> - Application metrics</li>
+                <li><code>POST /api/calculate</code> - Perform calculation</li>
+                <li><code>POST /api/evaluate</code> - Evaluate expression</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+</body>
+</html>
