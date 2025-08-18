@@ -1,4 +1,4 @@
-# Flask Calculator - MLOps Demo 1
+# Flask Calculator - MLOps Demo 2
  
 ## Features
 
